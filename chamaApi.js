@@ -10,7 +10,7 @@ function testeApi() {
 function testeApiGato() {
     axios.get('https://api.thecatapi.com/v1/images/search').then(response => {
 
-        const gato = response.data;
+        const gato = response;
 
         mostraReacao(gato);
     })
@@ -34,8 +34,8 @@ function mostraPiada(piada) {
 }
 
 function mostraReacao(gato) {
-    const img = document.getElementById('imgReacao');
-    const i = Math.floor(Math.random() * numeros.length);
+    const img = document.getElementById('imgReacao').src = gato.data[0].url;
 
-    console.log();
+
+    console.log(gato.data[0].url);
 }
