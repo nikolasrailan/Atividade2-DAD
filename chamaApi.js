@@ -1,29 +1,41 @@
 function testeApi() {
     axios.get('https://v2.jokeapi.dev/joke/Any').then(response => {
 
-        console.log(response);
         const piada = response.data;
 
         mostraPiada(piada);
     })
 }
 
+function testeApiGato() {
+    axios.get('https://api.thecatapi.com/v1/images/search').then(response => {
+
+        const gato = response.data;
+
+        mostraReacao(gato);
+    })
+}
+
+
 const btnChama = document.getElementById('btnChama');
 
 btnChama.addEventListener('click', () => {
 
     testeApi();
-    console.log('Fui clicado');
+    testeApiGato();
 })
 
 function mostraPiada(piada) {
     const titulo = document.getElementById('tituloPiada');
+    const resposta=document.getElementById('respostaPiada');
 
-    if(titulo){
-        titulo.innerHTML = piada.setup;
-        console.log(titulo);
-    }
+    titulo.innerHTML = piada.setup;
+    resposta.innerHTML = piada.delivery;
+}
 
+function mostraReacao(gato) {
+    const img = document.getElementById('imgReacao');
+    const i = Math.floor(Math.random() * numeros.length);
 
-
+    console.log();
 }
